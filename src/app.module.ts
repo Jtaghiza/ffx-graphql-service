@@ -9,7 +9,8 @@ import {ItemModule} from "./item/item.module";
 @Module({
   imports: [
       GraphQLModule.forRoot({
-          autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+          // autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+          autoSchemaFile: true,
           debug: true,
           playground: true,
           installSubscriptionHandlers: true,
