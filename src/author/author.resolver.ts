@@ -19,23 +19,24 @@ export class AuthorsResolver {
         return this.authorsService.findOneById(id);
     }
 
-    @Query(returns => [Author])
-    async authors() {
-        return this.authorsService.findAll()
-    }
-
-    @Mutation(returns => Author)
-    async updateAuthorFirstName(@Args('updatedAuthor') author: UpdatedAuthor) {
-        return this.authorsService.updateFirstName(author);
-    }
+    // @Query(returns => [Author])
+    // async authors() {
+    //     return this.authorsService.findAll()
+    // }
+    //
+    // @Mutation(returns => Author)
+    // async updateAuthorFirstName(@Args('updatedAuthor') author: UpdatedAuthor) {
+    //     return this.authorsService.updateFirstName(author);
+    // }
 
     @Mutation(returns => Author)
     async addAuthor(
         @Args('newAuthor') newAuthor: NewAuthor,
     ): Promise<Author> {
         const author = await this.authorsService.create(newAuthor);
+        console.log(author);
         await this.pubSub.publish('authorAdded', {authorAdded: author});
-        return author;
+        return new Author();
     }
 
     @Subscription(returns => Author, {
