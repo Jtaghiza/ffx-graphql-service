@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 
 import {GraphQLModule} from "@nestjs/graphql";
 import {AuthorsModule} from "./author/authors.module";
-import {InMemoryDBModule} from "@nestjs-addons/in-memory-db";
 import {join} from 'path';
 import {ItemModule} from "./item/item.module";
 
@@ -15,7 +14,6 @@ import {ItemModule} from "./item/item.module";
           playground: true,
           installSubscriptionHandlers: true,
       }),
-      InMemoryDBModule.forRoot(),
       AuthorsModule,
       ItemModule
   ],

@@ -1,5 +1,4 @@
 import {Field, Int, ObjectType} from "@nestjs/graphql";
-import {InMemoryDBEntity} from "@nestjs-addons/in-memory-db";
 // import {Post} from "./post";
 
 @ObjectType()

@@ -8,7 +8,6 @@ executors:
 workflows:
   build_and_deploy:
     jobs:
-      - build
       - deploy:
           context: gcloud-creds
           filters:
